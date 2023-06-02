@@ -6,6 +6,10 @@ const ExpenseItem = (props) => {
     const { dispatch } = useContext(AppContext);
 
     const handleDeleteExpense = () => {
+        const item = {
+            name: props.name,
+        };
+        
         dispatch({
             type: 'DELETE_EXPENSE',
             payload: props.id,
@@ -14,13 +18,13 @@ const ExpenseItem = (props) => {
 
     const increaseAllocation = (name) => {
         const expense = {
-            name: name,
+            name: props.name,
             cost: 10,
         };
 
         dispatch({
             type: 'ADD_EXPENSE',
-            payload: expense
+            payload: expense,
         });
 
     }
